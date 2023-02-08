@@ -20,8 +20,6 @@ use Laminas\Diactoros\Response\JsonResponse;
  *     )
  * )
  */
-
-
 class GetAllPostsController
 {
     private PostsRepository $postsRepository;
