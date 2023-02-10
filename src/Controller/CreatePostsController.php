@@ -9,6 +9,7 @@ use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use OpenApi\Annotations as OA;
 use Api\Repository\PostsRepository;
+use Cocur\Slugify\Slugify;
 use Laminas\Diactoros\Response\JsonResponse;
 
 /**
@@ -23,7 +24,7 @@ use Laminas\Diactoros\Response\JsonResponse;
  *              mediaType="application/json",
  *              @OA\Schema(
  *                  @OA\Property(property="title", type="string", example="Best Developer Ever Existed"),
- *                  @OA\Property(property="slug", type="string", example="It is me"),
+ *                  @OA\Property(property="slug", type="string", example="--It will generate automatically by the title--"),
  *                  @OA\Property(property="content", type="string", example="I am the best"),
  *                  @OA\Property(property="thumbnail", type="string", example="Base64 Encoded String"),
  *                  @OA\Property(property="author", type="string", example="Krivan Raul"),
@@ -61,10 +62,13 @@ class CreatePostsController
 
         file_put_contents('images/' . $unique . '.jpg', base64_decode($b64));
 
+        $slugify = new Slugify();
+        $slug = $slugify->slugify($data['title']);
+
         $posts = new Posts(
             Uuid::uuid4(),
             $data['title'],
-            $data['slug'],
+            $slug,
             $data['content'],
             $_ENV['APP_URL'] . 'images/' . $unique . '.jpg',
             $data['author'],

@@ -12,4 +12,5 @@ interface PostsRepository
     public function getById(UuidInterface $post_id): Posts;
     public function deletePosts(UuidInterface $post_id): string;
     public function updatePosts(UuidInterface $post_id, array $data): void;
+    public function getBySlug($slug): array;
 }

@@ -83,4 +83,19 @@ class PostsRepositoryFromPdo implements PostsRepository
 
         $stmt->execute();
     }
+    public function getBySlug($slug): array
+    {
+        $stmt = $this->pdo->prepare(<<<SQL
+            SELECT * 
+            FROM posts
+            WHERE slug = ?
+        SQL);
+
+        $stmt->execute([$slug]);
+        $data = [];
+        foreach ($stmt as $item) {
+            $data[] = Posts::populate($item);
+        }
+        return $data;
+    }
 }
