@@ -8,12 +8,14 @@ use Api\Controller\GetBySlugController;
 use Api\Controller\CreatePostsController;
 use Api\Controller\DeletePostsController;
 use Api\Controller\GetAllPostsController;
+use Api\Controller\GetByIdJoinController;
 use Api\Controller\UpdatePostsController;
 use Api\Controller\GetCategoryByIdController;
 use Api\Controller\CreateCategoriesController;
 use Api\Controller\DeleteCategoriesController;
 use Api\Controller\GetAllCategoriesController;
 use Api\Controller\UpdateCategoriesController;
+use Api\Controller\CreatePostsCategoriesController;
 
 require __DIR__ . '/../boot.php';
 
@@ -35,6 +37,8 @@ $app->get('/v1/categories/all', new GetAllCategoriesController($container));
 $app->get('/v1/categories/{category_id}', new GetCategoryByIdController($container));
 $app->delete('/v1/categories/{category_id}', new DeleteCategoriesController($container));
 $app->put('/v1/categories/{category_id}', new UpdateCategoriesController($container));
+$app->post('/v1/posts_categories/create', new CreatePostsCategoriesController($container));
+$app->get('/v1/posts_categories/{id_post}', new GetByIdJoinController($container));
 
 $app->addErrorMiddleware(true, true, true);
 

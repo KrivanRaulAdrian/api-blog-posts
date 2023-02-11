@@ -1,10 +1,12 @@
 <?php
 
-use Api\Repository\CategoriesRepository;
-use Api\Repository\CategoriesRepositoryFromPdo;
-use Api\Repository\PostsRepository;
-use Api\Repository\PostsRepositoryFromPdo;
 use DI\Container;
+use Api\Repository\PostsRepository;
+use Api\Repository\CategoriesRepository;
+use Api\Repository\PostsRepositoryFromPdo;
+use Api\Repository\PostsCategoriesRepository;
+use Api\Repository\CategoriesRepositoryFromPdo;
+use Api\Repository\PostsCategoriesRepositoryFromPdo;
 
 $container = new Container();
 
@@ -41,6 +43,10 @@ $container->set(PostsRepository::class, static function (Container $container) {
 $container->set(CategoriesRepository::class, static function (Container $container) {
     $pdo = $container->get('db');
     return new CategoriesRepositoryFromPdo($pdo);
+});
+$container->set(PostsCategoriesRepository::class, static function (Container $container) {
+    $pdo = $container->get('db');
+    return new PostsCategoriesRepositoryFromPdo($pdo);
 });
 
 return $container;
