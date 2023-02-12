@@ -55,7 +55,7 @@ class PostsCategoriesRepositoryFromPdo implements PostsCategoriesRepository
             ];
         }
         foreach ($data as $row) {
-            $postsCateogries['category'][] = [
+            $postsCateogries['categories'][] = [
                 'id_category' => $row['id_category'],
                 'name' => $row['name'],
             ];
