@@ -55,12 +55,12 @@ class PostsCategoriesRepositoryFromPdo implements PostsCategoriesRepository
             ];
         }
         foreach ($data as $row) {
-            $postsCateogries['categories'][] = [
+            $postsCategories['categories'][] = [
                 'id_category' => $row['id_category'],
                 'name' => $row['name'],
             ];
         }
-        $array = array_merge($categories, $postsCateogries);
+        $array = array_merge($categories, $postsCategories);
 
 
         return array_unique($array, SORT_REGULAR);
