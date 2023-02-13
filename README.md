@@ -4,6 +4,14 @@ An application that lets the user create posts, categories, and posts categories
 
 ## App Routes
 
+## Home
+
+- [GET] /
+
+## OpenApi
+
+- [GET] /openapi
+
 ## Posts
 
 - [POST] /v1/posts/create
