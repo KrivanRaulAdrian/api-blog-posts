@@ -34,3 +34,5 @@ An application that lets the user create posts, categories, and posts categories
 - Configure the environment: `cp .env.example .env`
 - Add your configuration to the `.env` file
 - Run the application in your prefered localhost: `php -S localhost:8000 -t public`
+- Run a test using PHPStan to see the code quality: `vendor/bin/phpstan analyse src`
+- Run a test using PHP Code Sniffer: `./vendor/bin/phpcs --standard=PSR12 src/`
