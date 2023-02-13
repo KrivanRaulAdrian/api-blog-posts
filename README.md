@@ -1,3 +1,6 @@
+Morning Giorgio, hope you are doing great :smile:!
+I added the README to the project, this is my approach. What do you think?
+
 # php-api-project
 
 An application that lets the user create posts, categories, and posts categories. The application is using the full OOP paradigms. Also this API is having routes to create, read, update, and delete posts and create, read, update, and delete categories.
@@ -26,13 +29,13 @@ An application that lets the user create posts, categories, and posts categories
 - [POST] /v1/posts_categories/create
 - [GET] /v1/posts_categories/{id_post}
 
-## Instructions for instalation
+## Instructions for installation
 
 - Clone repository: `git clone git@gitlab.com:KrivanRaulAdrian/php-api-project.git`
 - Create the DB: `php cli/create-db.php`
 - Install the composer dependencies: `composer install`
 - Configure the environment: `cp .env.example .env`
 - Add your configuration to the `.env` file
-- Run the application in your prefered localhost: `php -S localhost:8000 -t public`
+- Run the application in your preferred localhost: `php -S localhost:8000 -t public`
 - Run a test using PHPStan to see the code quality: `vendor/bin/phpstan analyse src`
 - Run a test using PHP Code Sniffer: `./vendor/bin/phpcs --standard=PSR12 src/`
