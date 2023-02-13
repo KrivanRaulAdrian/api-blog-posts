@@ -36,3 +36,18 @@ An application that lets the user create posts, categories, and posts categories
 - Run the application in your preferred localhost: `php -S localhost:8000 -t public`
 - Run a test using PHPStan to see the code quality: `vendor/bin/phpstan analyse src`
 - Run a test using PHP Code Sniffer: `./vendor/bin/phpcs --standard=PSR12 src/`
+
+## Required framework and packages
+
+- Slim Framework: `composer require slim/slim:"4.*"`,
+  `composer require slim/psr7`,
+  `composer require nyholm/psr7 nyholm/psr7-server`,
+  `composer require guzzlehttp/psr7 "^2"`,
+  `composer require laminas/laminas-diactoros`,
+  `composer require php-di/slim-bridge`
+- Ramsey Uuid: `composer require ramsey/uuid`
+- Dotenv: `composer require vlucas/phpdotenv`
+- Swagger: `composer require zircote/swagger-php`
+- Slugify: `composer require cocur/slugify`
+- PHP Stan: `composer require --dev phpstan/phpstan`
+- PHP Code Sniffer: `composer require squizlabs/php_codesniffer` - it will recognise that it needs to be added in the dev environment
