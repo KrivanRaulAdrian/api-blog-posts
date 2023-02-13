@@ -50,4 +50,4 @@ An application that lets the user create posts, categories, and posts categories
 - Swagger: `composer require zircote/swagger-php`
 - Slugify: `composer require cocur/slugify`
 - PHP Stan: `composer require --dev phpstan/phpstan`
-- PHP Code Sniffer: `composer require squizlabs/php_codesniffer` - it will recognise that it needs to be added in the dev environment
+- PHP Code Sniffer: `composer require squizlabs/php_codesniffer` - it will recognize that it needs to be added in the dev environment
