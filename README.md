@@ -1,6 +1,6 @@
 # php-api-project
 
-An application that lets the user create posts, categories, and posts categories. The application is using the full OOP paradigms. Also this API is having routes to create, read, update, and delete posts and create, read, update, and delete categories.
+An API that lets the user create posts, categories, and posts categories. The API is using the full OOP paradigms. Also this API is having routes to create, read, update, and delete posts and create, read, update, and delete categories.
 
 ## App Routes
 
