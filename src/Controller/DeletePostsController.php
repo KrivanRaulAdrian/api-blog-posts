@@ -8,6 +8,7 @@ use Slim\Psr7\Response;
 use OpenApi\Annotations as OA;
 use Api\Repository\PostsRepository;
 use Laminas\Diactoros\Response\JsonResponse;
+use PDOException;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -47,12 +48,22 @@ class DeletePostsController
     }
     public function __invoke(Request $request, Response $response, $args): JsonResponse
     {
-        $this->postsRepository->deletePosts(Uuid::fromString($args['post_id']));
+        try {
+            $this->postsRepository->deletePosts(Uuid::fromString($args['post_id']));
 
-        $output = [
-            'status' => 'success'
-        ];
+            $output = [
+                'status' => 'success'
+            ];
 
-        return new JsonResponse($output);
+            return new JsonResponse($output);
+        } catch (PDOException $e) {
+            error_log($e);
+            $output = [
+                'status' => 'error',
+                'message' => 'Cannot delete a post that is present in a post category'
+            ];
+
+            return new JsonResponse($output, 500);
+        }
     }
 }
