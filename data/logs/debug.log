@@ -406,3 +406,4 @@
 [2023-03-07T11:10:44.998076+00:00] api.DEBUG: "post ID not found" [] []
 [2023-03-07T11:10:50.761732+00:00] api.DEBUG: ["name should not be empty","name should not have less than 3 characters"] [] []
 [2023-03-07T11:11:05.607826+00:00] api.DEBUG: "category ID not found" [] []
+[2023-03-07T11:11:56.435763+00:00] api.DEBUG: "category ID not found" [] []
