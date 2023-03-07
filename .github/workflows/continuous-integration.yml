@@ -75,11 +75,6 @@ jobs:
 
       - name: "PHPStan"
         run: "vendor/bin/phpstan analyse --memory-limit=-1"
-        parameters:
-	          level: 5
-	          paths:
-		            - src
-		            - test
 
   coding-standards:
     name: "Check Coding Standards"
