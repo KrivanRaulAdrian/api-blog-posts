@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - "module5-project"
-      - "deploy"
 
 jobs:
   phpunit:
