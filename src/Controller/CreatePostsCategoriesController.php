@@ -28,11 +28,13 @@ use Laminas\Diactoros\Response\JsonResponse;
  *              mediaType="application/json",
  *              @OA\Schema(
  *                  @OA\Property(property="title", type="string", example="Best Developer Ever Existed"),
- *                  @OA\Property(property="slug", type="string", example="--It will generate automatically by the title--"),
+ *                  @OA\Property(property="slug", type="string",
+ * example="--It will generate automatically by the title--"),
  *                  @OA\Property(property="content", type="string", example="I am the best"),
  *                  @OA\Property(property="thumbnail", type="string", example="Base64 Encoded String"),
  *                  @OA\Property(property="author", type="string", example="Krivan Raul"),
- *                  @OA\Property(property="category_id", type="string", example="[7b2f8bee-cc6d-40f2-92c2-e001f3b08019]"),
+ *                  @OA\Property(property="category_id", type="string",
+ *  example="[7b2f8bee-cc6d-40f2-92c2-e001f3b08019]"),
  *      )
  *    )
  * ),
