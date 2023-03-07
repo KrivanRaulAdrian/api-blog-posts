@@ -358,3 +358,4 @@
 [2023-03-07T10:55:25.327843+00:00] api.ERROR: Api\Repository\CategoriesRepositoryFromDoctrine::fetchById(): Return value must be of type Api\Entity\Categories, InvalidArgumentException returned [] []
 [2023-03-07T10:57:46.498217+00:00] api.ERROR: Cannot use object of type Ramsey\Uuid\Lazy\LazyUuidFromString as array [] []
 [2023-03-07T11:00:14.989154+00:00] api.ERROR: Exception::__construct(): Argument #2 ($code) must be of type int, array given [] []
+[2023-03-07T12:50:10.248039+00:00] api.ERROR: Not found. [] []
