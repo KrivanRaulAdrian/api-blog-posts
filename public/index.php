@@ -48,7 +48,7 @@ $app->get('/v1/categories/{id}', new GetCategoryByIdController($container));
 $app->delete('/v1/categories/{id}', new DeleteCategoriesController($container));
 $app->put('/v1/categories/{id}', new UpdateCategoriesController($container));
 
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorMiddleware = $app->addErrorMiddleware(false, true, true);
 $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
 
 $app->run();

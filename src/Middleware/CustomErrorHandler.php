@@ -8,6 +8,7 @@ use Monolog\Logger;
 use Slim\Psr7\Request;
 use Psr\Log\LoggerInterface;
 use Api\Exception\InvalidDataException;
+use InvalidArgumentException;
 
 class CustomErrorHandler
 {
@@ -47,6 +48,14 @@ class CustomErrorHandler
                 'code' => 'validation_exception',
                 'id' => 'invalid_data_exception',
                 'status_code' => 400,
+            ];
+        }
+        if ($exception instanceof InvalidArgumentException) {
+            $this->logger->debug(json_encode($exception->getMessage()));
+            return [
+                'errors' => $exception->getMessage(),
+                'id' => 'invalid_data_exception',
+                'status_code' => 404,
             ];
         }
         $this->logger->error($exception->getMessage());
