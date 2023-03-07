@@ -48,19 +48,10 @@ class GetBySlugController
     }
     private function toJson(array $posts): JsonResponse
     {
-        $response = [];
+        $postsCategories = [];
         foreach ($posts as $post) {
-            $response[] = [
-                'id' => $post->id()->toString(),
-                'title' => $post->title(),
-                'slug' => $post->slug(),
-                'content' => $post->content(),
-                'thumbnail' => $post->thumbnail(),
-                'author' => $post->author(),
-                'posted_at' => $post->posted_at()->format('Y-m-d H:i:s'),
-            ];
+            $postsCategories[] = $post->toArray();
         }
-
-        return new JsonResponse($response);
+        return new JsonResponse($postsCategories);
     }
 }
