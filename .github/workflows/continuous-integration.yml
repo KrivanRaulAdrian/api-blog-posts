@@ -79,7 +79,7 @@ jobs:
 	          level: 5
 	          paths:
 		            - src
-		            - tests
+		            - test
 
   coding-standards:
     name: "Check Coding Standards"
