@@ -2,13 +2,13 @@
   <img align="center" height="200" src=" public/elephpant.png">
 </p>
 
+[![Continuous Integration](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml)
+
 <h1 align="center">Module 5 API Project</h1>
 
 <p align="center">
 An API that lets the user create posts, categories, and posts categories. The API is using the full OOP paradigms. Also this API is having routes to create, read, update, and delete posts and create, read, update, and delete categories.
 </p>
-
-[![Continuous Integration](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml)
 
 ## Design Patterns
 
