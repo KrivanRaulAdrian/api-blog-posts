@@ -48,7 +48,7 @@ The design patterns used in this project are:
 
 ## Instructions for installation
 
-- Clone repository: `git clone git@gitlab.com:KrivanRaulAdrian/php-api-project.git`
+- Clone repository: `git clone git@github.com:KrivanRaulAdrian/Doctrine-API-project.git`
 - Create the database: `project_doctrine`
 - Create the tables: `php vendor/bin/doctrine orm:schema-tool:create`
 - Install the composer dependencies: `composer install`
