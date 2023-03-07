@@ -34,7 +34,7 @@ class UpdateResponse
             $posts->content(),
             $posts->thumbnail(),
             $posts->author(),
-            $posts->posted_at()->format('Y-m-d H:i:s'),
+            $posts->postedAt()->format('Y-m-d H:i:s'),
         );
     }
 }

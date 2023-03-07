@@ -79,7 +79,7 @@ class Posts
     {
         return $this->author;
     }
-    public function posted_at(): DateTimeImmutable
+    public function postedAt(): DateTimeImmutable
     {
         return $this->posted_at;
     }
@@ -114,6 +114,7 @@ class Posts
             'content' => $this->content(),
             'thumbnail' => $this->thumbnail(),
             'author' => $this->author(),
+            'posted_at' => $this->postedAt()->format('Y-m-d H:i:s'),
             'categories' => $categories
         ];
     }

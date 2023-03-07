@@ -35,6 +35,6 @@ class CreatePostsTest extends TestCase
         self::assertEquals($content, $posts->content());
         self::assertEquals($thumbnail, $posts->thumbnail());
         self::assertEquals($author, $posts->author());
-        self::assertEquals($posted_at, $posts->posted_at());
+        self::assertEquals($posted_at, $posts->postedAt());
     }
 }
