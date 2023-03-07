@@ -26,8 +26,7 @@ use OpenApi\Annotations as OA;
  *     ),
  *     @OA\Response(
  *         response=200,
- *         description="Post response",
- *         @OA\JsonContent(ref="#/components/schemas/PostResponseResult")
+ *         description="Post response"
  *     )
  * )
  */

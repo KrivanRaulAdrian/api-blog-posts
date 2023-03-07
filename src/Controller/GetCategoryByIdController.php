@@ -26,8 +26,7 @@ use OpenApi\Annotations as OA;
  *     ),
  *     @OA\Response(
  *         response=200,
- *         description="Category response",
- *         @OA\JsonContent(ref="#/components/schemas/CategoryResponseResult")
+ *         description="Category response"
  *     )
  * )
  */
