@@ -13,7 +13,7 @@ class DeleteResponse
 {
     public function __construct(
         /** @OA\Property(property="status", type="string", example="success"), */
-        public readonly string $post_id,
+        public readonly string $id,
     ) {
     }
     public static function deletePost(Posts $posts): array

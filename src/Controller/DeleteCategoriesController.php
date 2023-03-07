@@ -13,13 +13,13 @@ use Ramsey\Uuid\Uuid;
 
 /**
  * @OA\Delete(
- *     path="/v1/categories/{category_id}",
+ *     path="/v1/categories/{id}",
  *     description="Delete a category by ID.",
  *     tags={"Categories"},
  *     @OA\Parameter(
  *         description="ID of category to delete",
  *         in="path",
- *         name="category_id",
+ *         name="id",
  *         required=true,
  *         @OA\Schema(
  *             type="string",
@@ -36,8 +36,6 @@ use Ramsey\Uuid\Uuid;
  * )
  */
 
-
-
 class DeleteCategoriesController
 {
     private CategoriesRepository $categoriesRepository;
@@ -48,22 +46,12 @@ class DeleteCategoriesController
     }
     public function __invoke(Request $request, Response $response, $args): JsonResponse
     {
-        try {
-            $this->categoriesRepository->deleteCategories(Uuid::fromString($args['category_id']));
+        $this->categoriesRepository->deleteCategories(Uuid::fromString($args['id']));
 
-            $output = [
-                'status' => 'success'
-            ];
+        $output = [
+            'status' => 'success'
+        ];
 
-            return new JsonResponse($output);
-        } catch (PDOException $e) {
-            error_log($e);
-            $output = [
-                'status' => 'error',
-                'message' => 'Cannot delete a category that is present in a post category'
-            ];
-
-            return new JsonResponse($output, 500);
-        }
+        return new JsonResponse($output);
     }
 }

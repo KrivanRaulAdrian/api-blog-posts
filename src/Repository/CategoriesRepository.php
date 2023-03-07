@@ -9,7 +9,8 @@ interface CategoriesRepository
 {
     public function createCategories(Categories $categories): void;
     public function getAllCategories(): array;
-    public function fetchById(UuidInterface $category_id): Categories;
-    public function deleteCategories(UuidInterface $category_id): string;
-    public function updateCategories(UuidInterface $category_id, array $data): void;
+    public function fetchById(UuidInterface $id): Categories;
+    public function deleteCategories(UuidInterface $id): string;
+    public function updateCategories(UuidInterface $id, array $data): void;
+    public function getByIdString($id): Categories;
 }

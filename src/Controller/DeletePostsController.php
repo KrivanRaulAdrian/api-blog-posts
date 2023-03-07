@@ -3,23 +3,23 @@
 namespace Api\Controller;
 
 use DI\Container;
+use Ramsey\Uuid\Uuid;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use OpenApi\Annotations as OA;
 use Api\Repository\PostsRepository;
 use Laminas\Diactoros\Response\JsonResponse;
-use PDOException;
-use Ramsey\Uuid\Uuid;
 
 /**
  * @OA\Delete(
- *     path="/v1/posts/{post_id}",
+ *     security={{"bearerAuth": {}}},
+ *     path="/v1/posts/{id}",
  *     description="Delete a post by ID.",
  *     tags={"Posts"},
  *     @OA\Parameter(
  *         description="ID of post to delete",
  *         in="path",
- *         name="post_id",
+ *         name="id",
  *         required=true,
  *         @OA\Schema(
  *             type="string",
@@ -36,8 +36,6 @@ use Ramsey\Uuid\Uuid;
  * )
  */
 
-
-
 class DeletePostsController
 {
     private PostsRepository $postsRepository;
@@ -48,22 +46,12 @@ class DeletePostsController
     }
     public function __invoke(Request $request, Response $response, $args): JsonResponse
     {
-        try {
-            $this->postsRepository->deletePosts(Uuid::fromString($args['post_id']));
+        $this->postsRepository->deletePosts(Uuid::fromString($args['id']));
 
-            $output = [
-                'status' => 'success'
-            ];
+        $output = [
+            'status' => 'success'
+        ];
 
-            return new JsonResponse($output);
-        } catch (PDOException $e) {
-            error_log($e);
-            $output = [
-                'status' => 'error',
-                'message' => 'Cannot delete a post that is present in a post category'
-            ];
-
-            return new JsonResponse($output, 500);
-        }
+        return new JsonResponse($output);
     }
 }

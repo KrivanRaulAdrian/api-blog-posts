@@ -12,14 +12,14 @@ use OpenApi\Annotations as OA;
 class CreateCategoryResponse
 {
     public function __construct(
-        /** @OA\Property(property="category_id", type="string", example="3315e7c4-cc8c-4d89-b989-c40a05cbde8c"), */
-        public readonly string $category_id,
+        /** @OA\Property(property="id", type="string", example="3315e7c4-cc8c-4d89-b989-c40a05cbde8c"), */
+        public readonly string $id,
     ) {
     }
     public static function createPost(Categories $categories): self
     {
         return new CreateCategoryResponse(
-            $categories->category_id(),
+            $categories->id(),
         );
     }
 }

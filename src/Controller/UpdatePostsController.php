@@ -4,20 +4,24 @@ namespace Api\Controller;
 
 use DI\Container;
 use Ramsey\Uuid\Uuid;
+use DateTimeImmutable;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
+use Cocur\Slugify\Slugify;
+use Api\Validator\PostValidator;
 use Api\Repository\PostsRepository;
 use Laminas\Diactoros\Response\JsonResponse;
 
 /**
  * @OA\Put(
- *     path="/v1/posts/{post_id}",
+ *     security={{"bearerAuth": {}}},
+ *     path="/v1/posts/{id}",
  *     description="Update a post by ID.",
  *     tags={"Posts"},
  *     @OA\Parameter(
  *         description="ID of post to update",
  *         in="path",
- *         name="post_id",
+ *         name="id",
  *         required=true,
  *         @OA\Schema(
  *             type="string",
@@ -57,25 +61,30 @@ class UpdatePostsController
         $unique = uniqid();
 
         $b64 = $data['thumbnail'];
-        
+
         file_put_contents('images/' . $unique . '.jpg', base64_decode($b64));
 
+        $slugify = new Slugify();
+        $slug = $slugify->slugify($data['title']);
+
+        PostValidator::validate($data);
+
         $data = [
-            'post_id' => Uuid::uuid4(),
+            'id' => Uuid::uuid4(),
             'title' => $data['title'],
-            'slug' => $data['slug'],
+            'slug' => $slug,
             'content' => $data['content'],
             'thumbnail' => $_ENV['APP_URL'] . 'images/' . $unique . '.jpg',
             'author' => $data['author'],
-            'posted_at' => $data['posted_at']
+            'posted_at' => new DateTimeImmutable('now')
         ];
 
-        $this->postsRepository->updatePosts(Uuid::fromString($args['post_id']), $data);
+        $this->postsRepository->updatePosts(Uuid::fromString($args['id']), $data);
 
         $output = [
             'status' => 'success',
             'data' => [
-                'post_id' => $args['post_id']
+                'id' => $args['id']
             ],
         ];
 

@@ -10,6 +10,11 @@ use OpenApi\Annotations as OA;
 
 /**
  * @OA\Info(title="API Project", version="1.0")
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer"
+ * )
  */
 
 class OpenApiController

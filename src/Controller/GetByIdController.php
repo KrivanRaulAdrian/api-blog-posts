@@ -12,13 +12,13 @@ use OpenApi\Annotations as OA;
 
 /**
  * @OA\Get(
- *     path="/v1/posts/{post_id}",
+ *     path="/v1/posts/{id}",
  *     description="Returns a Post by ID.",
  *     tags={"Posts"},
  *     @OA\Parameter(
  *         description="ID of post to fetch",
  *         in="path",
- *         name="post_id",
+ *         name="id",
  *         required=true,
  *         @OA\Schema(
  *             type="string"
@@ -41,7 +41,8 @@ class GetByIdController
     }
     public function __invoke(Request $request, Response $response, $args): JsonResponse
     {
-        $post = $this->postsRepository->GetById(Uuid::fromString($args['post_id']));
-        return new JsonResponse(PostResponse::postResponse($post));
+        $post = $this->postsRepository->GetById(Uuid::fromString($args['id']));
+
+        return new JsonResponse($post->toArray(), 200);
     }
 }

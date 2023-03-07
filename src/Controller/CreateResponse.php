@@ -12,14 +12,14 @@ use OpenApi\Annotations as OA;
 class CreateResponse
 {
     public function __construct(
-        /** @OA\Property(property="post_id", type="string", example="3315e7c4-cc8c-4d89-b989-c40a05cbde8c"), */
-        public readonly string $post_id,
+        /** @OA\Property(property="id", type="string", example="3315e7c4-cc8c-4d89-b989-c40a05cbde8c"), */
+        public readonly string $id,
     ) {
     }
     public static function createPost(Posts $posts): self
     {
         return new CreateResponse(
-            $posts->post_id(),
+            $posts->id(),
         );
     }
 }

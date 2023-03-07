@@ -6,18 +6,19 @@ use DI\Container;
 use Ramsey\Uuid\Uuid;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
+use Api\Validator\CategoryValidator;
 use Api\Repository\CategoriesRepository;
 use Laminas\Diactoros\Response\JsonResponse;
 
 /**
  * @OA\Put(
- *     path="/v1/categories/{category_id}",
+ *     path="/v1/categories/{id}",
  *     description="Update a category by ID.",
  *     tags={"Categories"},
  *     @OA\Parameter(
  *         description="ID of category to update",
  *         in="path",
- *         name="category_id",
+ *         name="id",
  *         required=true,
  *         @OA\Schema(
  *             type="string",
@@ -54,18 +55,20 @@ class UpdateCategoriesController
     {
         $data = json_decode($request->getBody()->getContents(), true);
 
+        CategoryValidator::validate($data);
+
         $data = [
-            'category_id' => Uuid::uuid4(),
+            'id' => Uuid::uuid4(),
             'name' => $data['name'],
             'description' => $data['description'],
         ];
 
-        $this->categoriesRepository->updateCategories(Uuid::fromString($args['category_id']), $data);
+        $this->categoriesRepository->updateCategories(Uuid::fromString($args['id']), $data);
 
         $output = [
             'status' => 'success',
             'data' => [
-                'category_id' => $args['category_id']
+                'id' => $args['id']
             ],
         ];
 

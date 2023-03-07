@@ -43,6 +43,7 @@ class GetBySlugController
     public function __invoke(Request $request, Response $response, $args): JsonResponse
     {
         $posts = $this->postsRepository->getBySlug($args['slug']);
+
         return $this->toJson($posts);
     }
     private function toJson(array $posts): JsonResponse
@@ -50,7 +51,7 @@ class GetBySlugController
         $response = [];
         foreach ($posts as $post) {
             $response[] = [
-                'post_id' => $post->post_id()->toString(),
+                'id' => $post->id()->toString(),
                 'title' => $post->title(),
                 'slug' => $post->slug(),
                 'content' => $post->content(),

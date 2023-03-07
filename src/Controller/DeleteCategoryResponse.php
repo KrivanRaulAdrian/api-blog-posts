@@ -13,7 +13,7 @@ class DeleteCategoryResponse
 {
     public function __construct(
         /** @OA\Property(property="status", type="string", example="success"), */
-        public readonly string $category_id,
+        public readonly string $id,
     ) {
     }
     public static function deleteCategory(Categories $categories): array

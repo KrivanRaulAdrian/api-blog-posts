@@ -12,13 +12,13 @@ use OpenApi\Annotations as OA;
 
 /**
  * @OA\Get(
- *     path="/v1/categories/{category_id}",
+ *     path="/v1/categories/{id}",
  *     description="Returns a Category by ID.",
  *     tags={"Categories"},
  *     @OA\Parameter(
  *         description="ID of category to fetch",
  *         in="path",
- *         name="category_id",
+ *         name="id",
  *         required=true,
  *         @OA\Schema(
  *             type="string"
@@ -31,6 +31,7 @@ use OpenApi\Annotations as OA;
  *     )
  * )
  */
+
 class GetCategoryByIdController
 {
     private CategoriesRepository $categoriesRepository;
@@ -41,7 +42,8 @@ class GetCategoryByIdController
     }
     public function __invoke(Request $request, Response $response, $args): JsonResponse
     {
-        $category = $this->categoriesRepository->fetchById(Uuid::fromString($args['category_id']));
-        return new JsonResponse(CategoryResponse::categoryResponse($category));
+        $category = $this->categoriesRepository->fetchById(Uuid::fromString($args['id']));
+
+        return new JsonResponse($category->toArray());
     }
 }

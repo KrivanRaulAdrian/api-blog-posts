@@ -21,7 +21,6 @@ use Laminas\Diactoros\Response\JsonResponse;
  * )
  */
 
-
 class GetAllCategoriesController
 {
     private CategoriesRepository $categoriesRepository;
@@ -40,7 +39,7 @@ class GetAllCategoriesController
         $categoryResponse = [];
         foreach ($categories as $category) {
             $categoryResponse[] = [
-                'category_id' => $category->category_id()->toString(),
+                'id' => $category->id()->toString(),
                 'name' => $category->name(),
                 'description' => $category->description(),
             ];
