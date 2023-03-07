@@ -8,6 +8,8 @@
 An API that lets the user create posts, categories, and posts categories. The API is using the full OOP paradigms. Also this API is having routes to create, read, update, and delete posts and create, read, update, and delete categories.
 </p>
 
+[![Continuous Integration](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml)
+
 ## Design Patterns
 
 The design patterns used in this project are:
