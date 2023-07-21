@@ -1,7 +1,7 @@
 [![Continuous Integration](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/KrivanRaulAdrian/Doctrine-API-project/actions/workflows/continuous-integration.yml)
 
 <p align="center">
-  <img align="center" height="200" src=" public/elephpant.png">
+  <img align="center" height="200" src="public/elephpant.png">
 </p>
 
 <h1 align="center">API Blog Posts</h1>
